@@ -8,7 +8,7 @@ ng () {
 res=0
 
 out=$(./kadai1.py 1200 20)
-[ "${out}" = 1248000 ] || ng "$LINENO"
+[ "${out}" = "アルバイト年収は124.8万円です" ] || ng "$LINENO"
 
 out=$(./kadai1.py 1200)
 [ "$?" = 1 ] || ng "$LINENO"
