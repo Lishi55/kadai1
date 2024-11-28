@@ -2,10 +2,14 @@
 # SPDX-FileCopyrightText: 2024 Satoshi Nemoto miraiprj3104@icloud.com
 # SPDX-License-Identifier: BSD-3-Clause
 
-import sys
-if int(sys.argv[1]) >= 1076:
-    money = (int(52) * float(sys.argv[2]))
-    money = (money * int(sys.argv[1]))
+print("バイト先の時給を教えてください(円)")
+wage=float(input())
+print("一週間に働く時間を教えてください(時)")
+worktime=float(input())
+
+if wage >= 1076:
+    money = (int(52) * worktime)
+    money = (money * wage)
     money = (money/float(10000))
     if 103 <= money:
         print("103万の壁突破!!!")

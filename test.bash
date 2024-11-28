@@ -7,29 +7,35 @@ ng () {
 
 res=0
 
-out=$(./kadai1.py 1200 20)
+$(echo -e "1200\n20" > nums)
+out=$(./income < nums)
 expected="103万の壁突破!!!
 アルバイト年収は124.8万円です"
 [ "${out}" = "${expected}" ] || ng "$LINENO"
 
-out=$(./kadai1.py 1100 10)
+$(echo -e "1100\n10" > nums)
+out=$(./income < nums)
 expected="アルバイト年収は57.2万円です"
 [ "${out}" = "${expected}" ] || ng "$LINENO"
 
-out=$(./kadai1.py 1000 10)
+$(echo -e "1000\n10" > nums)
+out=$(./income < nums)
 expected="千葉県の最低賃金を下回っています
 労基に相談しましょう"
 [ "${out}" = "${expected}" ] || ng "$LINENO"
 
-out=$(./kadai1.py 1200)
+$(echo -e "あ\n20" > nums)
+out=$(./income < nums)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
 
-out=$(./kadai1.py)
+$(echo 1200 > nums)
+out=$(./income < nums)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
 
-out=$(./kadai1.py あ 12)
+$(echo -e " " > nums)
+out=$(./income < nums)
 [ "$?" = 1 ] || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
 
