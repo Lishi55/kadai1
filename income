@@ -4,10 +4,10 @@
 
 print("バイト先の時給を教えてください(円)")
 wage=float(input())
-print("一週間に働く時間を教えてください(時)")
-worktime=float(input())
-
 if wage >= 1076:
+    print("一週間に働く時間を教えてください(時)")
+    worktime=float(input())
+
     money = (int(52) * worktime)
     money = (money * wage)
     money = (money/float(10000))
