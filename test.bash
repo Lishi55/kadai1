@@ -1,4 +1,6 @@
 #!/bin/bash -xv
+# SPDX-FileCopyrightText: 2024 Satoshi Nemoto miraiprj3104@icloud.com
+# SPDX-License-Identifier: BSD-3-Clause
 
 ng () {
 	echo ${1}行目が違うよ
@@ -7,38 +9,34 @@ ng () {
 
 res=0
 
-out=$(echo -e "1200\n20" | ./income)
-expected="バイト先の時給を教えてください(円)
-一週間に働く時間を教えてください(時)
-103万の壁突破!!!
+out=$(echo 1200 20 | ./income)
+expected="103万の壁突破
 アルバイト年収は124.8万円です"
 [ "${out}" = "${expected}" ] || ng "$LINENO"
 
-out=$(echo -e "1100\n10" | ./income)
-expected="バイト先の時給を教えてください(円)
-一週間に働く時間を教えてください(時)
-アルバイト年収は57.2万円です"
+out=$(echo 1100 10 | ./income)
+expected="アルバイト年収は57.2万円です"
 [ "${out}" = "${expected}" ] || ng "$LINENO"
 
-out=$(echo -e "1000\n10" | ./income)
-expected="バイト先の時給を教えてください(円)
-千葉県の最低賃金を下回っています
-労基に相談しましょう"
+out=$(echo 1000 10 | ./income)
+expected="千葉県の最低賃金を下回っています"
 [ "${out}" = "${expected}" ] || ng "$LINENO"
 
-out=$(echo -e "あ\n20" | ./income)
+out=$(echo あ 20 | ./income)
 [ "$?" = 1 ] || ng "$LINENO"
-[ "${out}" = "バイト先の時給を教えてください(円)" ] || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
 
-out=$(echo -e "1200\n" "" | ./income)
-expected="バイト先の時給を教えてください(円)
-一週間に働く時間を教えてください(時)"
-[ "$?" = 0 ] || ng "$LINENO"
-[ "${out}" = "${expected}" ] || ng "$LINENO"
-
-out=$(echo -e " " | ./income)
+out=$(echo あ お | ./income)
 [ "$?" = 1 ] || ng "$LINENO"
-[ "${out}" = "バイト先の時給を教えてください(円)" ] || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
+
+out=$(echo 1200 | ./income)
+[ "$?" = 1 ] || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
+
+out=$(echo "" | ./income)
+[ "$?" = 1 ] || ng "$LINENO"
+[ "${out}" = "" ] || ng "$LINENO"
 
 [ "${res}" = 0 ] && echo OK
 
