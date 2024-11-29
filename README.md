@@ -25,7 +25,7 @@ $ chmod +x income
 
 実行
 ```bash
-$ echo [時給] [一週間に働く時間]./income
+$ echo [時給] [一週間に働く時間] | ./income
 ```
 
 ## 使用例
