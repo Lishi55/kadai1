@@ -2,8 +2,9 @@
 ![test](https://github.com/Lishi55/kadai1/actions/workflows/test.yml/badge.svg)
 
 ## 概要
-- プログラムに時給と週に何時間働くかを入力することで、年収を算出する.<br>
-103万の壁を超えた場合や、最低賃金を下回った場合警告する.
+- プログラムに時給と週に何時間働くかを入力することで、年収を算出する<br>
+103万の壁を超えた場合や、最低賃金を下回った場合警告する
+-- このプログラムでは一年を52週間として扱います
 
 ## 使用方法
 
@@ -15,6 +16,11 @@ $ git clone https://github.com/Lishi55/kadai1.git
 リポジトリに移動
 ```bash
 $ cd kadai1
+```
+
+パーミッションを変更　実行権限を付与
+```bash
+$ chmod +x income
 ```
 
 実行
