@@ -9,17 +9,17 @@
 
 リポジトリをクローン
 ```bash
-git clone https://github.com/Lishi55/kadai1.git
+$ git clone https://github.com/Lishi55/kadai1.git
 ```
 
 リポジトリに移動
 ```bash
-cd kadai1
+$ cd kadai1
 ```
 
 実行
 ```bash
-./income
+$ echo [時給] [一週間に働く時間]./income
 ```
 
 ## 使い方
@@ -29,13 +29,13 @@ cd kadai1
 - 例
 時給1100円で週に10時間働く場合
 ```bash
-echo 1100 10 | ./income
+$ echo 1100 10 | ./income
 アルバイト年収は57.2万円です
 ```
 
 時給1000円で週10時間働く場合(最低賃金を下回っている場合)
 ```bash
-echo 1000 10 | ./income
+$ echo 1000 10 | ./income
 千葉県の最低賃金を下回っています
 労基に相談しましょう
 ```

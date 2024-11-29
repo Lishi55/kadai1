@@ -19,7 +19,8 @@ expected="アルバイト年収は57.2万円です"
 [ "${out}" = "${expected}" ] || ng "$LINENO"
 
 out=$(echo 1000 10 | ./income)
-expected="千葉県の最低賃金を下回っています"
+expected="千葉県の最低賃金を下回っています
+労基に相談しましょう"
 [ "${out}" = "${expected}" ] || ng "$LINENO"
 
 out=$(echo あ 20 | ./income)
